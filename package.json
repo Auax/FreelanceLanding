@@ -10,10 +10,7 @@
 		"onlyBuiltDependencies": [
 			"sharp",
 			"unrs-resolver"
-		],
-		"overrides": {
-			"postcss": "8.5.15"
-		}
+		]
 	},
 	"dependencies": {
 		"@marsidev/react-turnstile": "^1.5.3",
