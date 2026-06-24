@@ -8,10 +8,15 @@ import { navItems, getNavHref } from "../site-data";
 export function Header() {
   return (
     <SiteHeaderFrame className="fixed z-50 w-full border-b border-transparent bg-transparent py-4 backdrop-blur-none transition-[background-color,border-color,backdrop-filter] duration-300 data-[scrolled=true]:border-black/5 data-[scrolled=true]:bg-white/80 data-[scrolled=true]:backdrop-blur-md">
-      <div className="container mx-auto flex items-center justify-between">
-        <Logo />
+      <div className="container mx-auto grid grid-cols-[1fr_auto] items-center lg:grid-cols-[1fr_auto_1fr]">
+        <div className="justify-self-start">
+          <Logo />
+        </div>
 
-        <nav className="hidden lg:block" aria-label="Primary navigation">
+        <nav
+          className="hidden justify-self-center lg:col-start-2 lg:row-start-1 lg:block"
+          aria-label="Primary navigation"
+        >
           <ul className="flex items-center">
             {navItems.map((item) => (
               <li key={item} className="px-4 py-2">
@@ -26,7 +31,7 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-3 lg:inline-flex">
+        <div className="hidden items-center justify-self-end gap-3 lg:col-start-3 lg:flex">
           <Button variant="outline" href="#contacto">
             Pedir auditoría
           </Button>
@@ -36,7 +41,9 @@ export function Header() {
           </Button>
         </div>
 
-        <MobileMenu />
+        <div className="col-start-2 row-start-1 justify-self-end lg:hidden">
+          <MobileMenu />
+        </div>
       </div>
     </SiteHeaderFrame>
   );

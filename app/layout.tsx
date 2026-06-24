@@ -12,9 +12,14 @@ const stackSansText = Stack_Sans_Text({
 });
 
 export const metadata: Metadata = {
-  title: "Ib Studio",
+  title: "IB Studio",
   description:
     "Crea tu web con nosotros. Diseño web, SEO, marketing digital, e-commerce, etc.",
+  icons: {
+    icon: "/logo-bg.png",
+    shortcut: "/logo-bg.png",
+    apple: "/logo-bg.png",
+  },
 };
 
 export default function RootLayout({
