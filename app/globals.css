@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme static {
+  --font-sans: var(--font-stack-sans-text), ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #2644ff;
+  --color-primary-hover: #1f37d1;
+  --color-primary-foreground: #fafafa;
+  --color-surface: #fff;
+  --color-surface-raised: #f7f9fc;
+  --color-surface-glow: #f7f9ff;
+  --color-surface-hover: #eef2f8;
+  --color-surface-media: #dfe7f2;
+  --color-border: #d8e2f0;
+  --color-border-strong: #bac9db;
+  --color-border-subtle: #e9edf3;
+  --color-border-card: #dfe5ee;
+  --color-border-control: #afbece;
+  --color-text-primary: #101722;
+  --color-text-secondary: #536274;
+  --color-text-tertiary: #99a0ae;
+  --color-text-strong: #354253;
+  --color-brand-muted: #c6bdfa;
+  --color-brand-soft: #667cff;
+  --color-chart-secondary: #5e75ff;
+  --color-browser-close: #ff5f57;
+  --color-browser-minimize: #febc2e;
+  --color-browser-expand: #28c840;
+  --shadow-tooltip: 0 8px 30px rgb(26 32 51 / 12%);
+
+  --text-display-lg: 48px;
+  --text-display-lg--line-height: 56px;
+  --text-display-md: 36px;
+  --text-display-md--line-height: 44px;
+  --text-display-xs: 24px;
+  --text-display-xs--line-height: 32px;
+  --text-md: 16px;
+  --text-md--line-height: 24px;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .container {
+    padding-inline: 1.25rem;
+  }
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}

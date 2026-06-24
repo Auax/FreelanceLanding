@@ -1,0 +1,44 @@
+{
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "eslint",
+		"test": "node --test app/api/contact/route.test.mjs"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"sharp",
+			"unrs-resolver"
+		],
+		"overrides": {
+			"postcss": "8.5.15"
+		}
+	},
+	"dependencies": {
+		"@marsidev/react-turnstile": "^1.5.3",
+		"@tailwindcss/postcss": "^4.3.0",
+		"@upstash/ratelimit": "^2.0.8",
+		"@upstash/redis": "^1.38.0",
+		"clsx": "^2.1.1",
+		"framer-motion": "^12.40.0",
+		"lucide-react": "^1.16.0",
+		"next": "^16.2.9",
+		"react": "^19.2.6",
+		"react-dom": "^19.2.6",
+		"react-phone-number-input": "^3.4.17",
+		"recharts": "^3.8.1",
+		"resend": "^6.14.0",
+		"tailwind-merge": "^3.6.0",
+		"tailwindcss": "^4.3.0"
+	},
+	"devDependencies": {
+		"@types/node": "^25.9.1",
+		"@types/react": "^19.2.15",
+		"@types/react-dom": "^19.2.3",
+		"eslint": "^9.39.4",
+		"eslint-config-next": "^16.2.9",
+		"postcss": "8.5.15",
+		"typescript": "^6.0.3"
+	}
+}
