@@ -12,6 +12,7 @@ function buildPayload(overrides = {}) {
     details: "Mensaje de prueba",
     website: "",
     company: "",
+    privacyAccepted: true,
     turnstileToken: "",
     ...overrides,
   };

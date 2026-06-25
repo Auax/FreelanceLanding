@@ -2,6 +2,7 @@
 
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { FormEvent, useRef, useState } from "react";
 import { Button } from "./Button";
 
@@ -62,6 +63,7 @@ export function ContactForm() {
           details: formData.get("details"),
           website: formData.get("website"),
           company: formData.get("company"),
+          privacyAccepted: formData.get("privacyAccepted") === "on",
           turnstileToken,
         }),
         signal: controller.signal,
@@ -203,6 +205,27 @@ export function ContactForm() {
           options={{ theme: "light", size: "flexible" }}
         />
       ) : null}
+
+      <label className="flex items-start gap-3 text-sm leading-relaxed text-text-secondary">
+        <input
+          name="privacyAccepted"
+          type="checkbox"
+          required
+          className="mt-1 size-4 shrink-0 rounded border-border-control text-primary focus:ring-primary/20"
+        />
+        <span>
+          He leído la{" "}
+          <Link
+            href="/privacidad"
+            className="font-medium text-primary transition-colors hover:text-primary-hover"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Política de privacidad
+          </Link>{" "}
+          y entiendo que mis datos se tratarán para responder a esta solicitud.
+        </span>
+      </label>
 
       <div>
         <Button

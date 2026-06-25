@@ -1,9 +1,10 @@
 export const navItems = ["Inicio", "Servicios", "Proyectos", "Planes", "Contacto", "FAQ"];
 
 export const contactInfo = {
-  email: "contacto@ibstudio.com",
-  phone: "+34 600 00 00 00",
-  phoneHref: "tel:+34600000000",
+  email: "ibaifo8@gmail.com",
+  phone: "+34 652 56 46 94",
+  whatsappHref: "https://wa.me/34652564694",
+  phoneHref: "tel:+34652564694",
 };
 
 const navAnchors: Record<string, string> = {

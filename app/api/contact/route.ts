@@ -16,6 +16,7 @@ type ContactPayload = {
   details: string;
   website: string;
   company: string;
+  privacyAccepted: boolean;
   turnstileToken: string;
 };
 
@@ -113,6 +114,7 @@ function parsePayload(value: unknown): ContactPayload | null {
     details: cleanMultilineString(input.details),
     website: cleanString(input.website),
     company: cleanString(input.company),
+    privacyAccepted: input.privacyAccepted === true,
     turnstileToken: cleanString(input.turnstileToken),
   };
 
@@ -121,6 +123,7 @@ function parsePayload(value: unknown): ContactPayload | null {
   if (payload.email.length > 254 || !EMAIL_PATTERN.test(payload.email)) return null;
   if (!PHONE_PATTERN.test(payload.phone)) return null;
   if (payload.details.length > 1200 || payload.website.length > 500) return null;
+  if (!payload.privacyAccepted) return null;
 
   if (payload.website) {
     try {

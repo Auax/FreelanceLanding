@@ -12,7 +12,10 @@ const stackSansText = Stack_Sans_Text({
 });
 
 export const metadata: Metadata = {
-  title: "IB Studio",
+  title: {
+    default: "IB Studio",
+    template: "%s | IB Studio",
+  },
   description:
     "Crea tu web con nosotros. Diseño web, SEO, marketing digital, e-commerce, etc.",
   icons: {
@@ -28,7 +31,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" className={stackSansText.variable}>
+    <html lang="es" className={stackSansText.variable}>
       <body>
         <MotionPreferences>{children}</MotionPreferences>
       </body>

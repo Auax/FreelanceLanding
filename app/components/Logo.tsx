@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function Logo() {
   return (
-    <a href="/" className="flex items-center gap-2.5 focus-visible:outline-primary">
+    <Link href="/" className="flex items-center gap-2.5 focus-visible:outline-primary">
       <Image
         src="/logo-big.png"
         alt="IB Studio"
@@ -11,6 +12,6 @@ export function Logo() {
         unoptimized
         priority
       />
-    </a>
+    </Link>
   );
 }

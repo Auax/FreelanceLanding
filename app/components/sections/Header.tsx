@@ -3,7 +3,7 @@ import { Logo } from "../Logo";
 import { MobileMenu } from "../MobileMenu";
 import { SiteHeaderFrame } from "../Motion";
 import { WhatsAppIcon } from "../WhatsAppIcon";
-import { navItems, getNavHref } from "../site-data";
+import { navItems, getNavHref, contactInfo } from "../site-data";
 
 export function Header() {
   return (
@@ -35,7 +35,7 @@ export function Header() {
           <Button variant="outline" href="#contacto">
             Pedir auditoría
           </Button>
-          <Button variant="primary" href="#contacto" className="gap-2">
+          <Button variant="primary" href={contactInfo.whatsappHref} className="gap-2">
             WhatsApp
             <WhatsAppIcon className="size-4 shrink-0" />
           </Button>

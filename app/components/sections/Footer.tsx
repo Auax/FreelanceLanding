@@ -1,6 +1,15 @@
+import Link from "next/link";
+
 import { Logo } from "../Logo";
 import { Reveal } from "../Motion";
 import { getNavHref, navItems } from "../site-data";
+
+const legalLinks = [
+  { label: "Aviso legal", href: "/aviso-legal" },
+  { label: "Privacidad", href: "/privacidad" },
+  { label: "Cookies", href: "/cookies" },
+  { label: "Términos", href: "/terminos" },
+] as const;
 
 export function Footer() {
   return (
@@ -33,13 +42,12 @@ export function Footer() {
 
       <div className="container mx-auto flex flex-col gap-3 pb-10 text-xs text-text-secondary md:flex-row md:items-center md:justify-between">
         <p>&copy; 2026 IB Studio. Todos los derechos reservados.</p>
-        <div className="flex gap-5">
-          <a href="#" className="hover:text-text-primary">
-            Términos
-          </a>
-          <a href="#" className="hover:text-text-primary">
-            Privacidad
-          </a>
+        <div className="flex flex-wrap gap-x-5 gap-y-2">
+          {legalLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="hover:text-text-primary">
+              {link.label}
+            </Link>
+          ))}
         </div>
       </div>
     </footer>

@@ -7,7 +7,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 import { Button } from "./Button";
 import { WhatsAppIcon } from "./WhatsAppIcon";
-import { navItems, getNavHref } from "./site-data";
+import { navItems, getNavHref, contactInfo } from "./site-data";
 
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -284,7 +284,7 @@ export function MobileMenu() {
                   <Button
                     variant="primary"
                     className="w-full gap-2"
-                    href="#contacto"
+                    href={`${contactInfo.whatsappHref}`}
                   >
                     WhatsApp
                     <WhatsAppIcon className="size-4 shrink-0" />
