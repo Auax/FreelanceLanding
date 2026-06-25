@@ -19,6 +19,12 @@ type ContactPayload = {
   turnstileToken: string;
 };
 
+type EmailConfig = {
+  apiKey: string;
+  from: string;
+  to: string[];
+};
+
 function json(message: string, status: number, extraHeaders?: HeadersInit) {
   return Response.json(
     { message },
@@ -30,6 +36,21 @@ function json(message: string, status: number, extraHeaders?: HeadersInit) {
       },
     },
   );
+}
+
+function getEmailConfig(): EmailConfig | null {
+  const apiKey = process.env.RESEND_API_KEY?.trim();
+  const from = process.env.CONTACT_FROM_EMAIL?.trim();
+  const to = process.env.CONTACT_TO_EMAIL?.split(",")
+    .map((email) => email.trim())
+    .filter(Boolean);
+
+  if (!apiKey || !from || !to?.length) {
+    console.error("Contact form email environment variables are not configured.");
+    return null;
+  }
+
+  return { apiKey, from, to };
 }
 
 function getClientIp(request: Request) {
@@ -225,31 +246,32 @@ export async function POST(request: Request) {
     return json("Mensaje enviado.", 200);
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.CONTACT_FROM_EMAIL;
-  const to = process.env.CONTACT_TO_EMAIL;
+  const emailConfig = getEmailConfig();
 
-  if (!apiKey || !from || !to) {
-    console.error("Contact form email environment variables are not configured.");
+  if (!emailConfig) {
     return json("El formulario no está disponible temporalmente.", 503);
   }
 
   try {
-    const resend = new Resend(apiKey);
+    const resend = new Resend(emailConfig.apiKey);
     const { error } = await resend.emails.send(
       {
-        from,
-        to: [to],
+        from: emailConfig.from,
+        to: emailConfig.to,
         replyTo: payload.email,
         subject: `Nuevo proyecto de ${payload.name}`,
         html: buildEmailHtml(payload),
         text: buildEmailText(payload),
       },
-      { idempotencyKey: `contact/${payload.submissionId}` },
+      { idempotencyKey: `contact-${payload.submissionId}` },
     );
 
     if (error) {
-      console.error("Resend rejected a contact form email:", error.name);
+      console.error("Resend rejected a contact form email:", {
+        name: error.name,
+        statusCode: error.statusCode,
+        message: error.message,
+      });
       return json("No se pudo enviar el mensaje. Inténtalo de nuevo.", 502);
     }
 

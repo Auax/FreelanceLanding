@@ -1,5 +1,6 @@
 type TurnstileVerifyResponse = {
   success: boolean;
+  "error-codes"?: string[];
 };
 
 export async function verifyTurnstileToken(token: string, remoteIp: string) {
@@ -16,21 +17,37 @@ export async function verifyTurnstileToken(token: string, remoteIp: string) {
 
   if (!token) return false;
 
-  const response = await fetch(
-    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({
-        secret,
-        response: token,
-        remoteip: remoteIp,
-      }),
-    },
-  );
+  let response: Response;
+  try {
+    response = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          secret,
+          response: token,
+          remoteip: remoteIp,
+        }),
+      },
+    );
+  } catch (error) {
+    console.error(
+      "Turnstile verification request failed:",
+      error instanceof Error ? error.message : "Unknown error",
+    );
+    return false;
+  }
 
-  if (!response.ok) return false;
+  if (!response.ok) {
+    console.error("Turnstile verification failed with HTTP status:", response.status);
+    return false;
+  }
 
   const result = (await response.json()) as TurnstileVerifyResponse;
+  if (!result.success) {
+    console.error("Turnstile rejected a contact form token:", result["error-codes"]);
+  }
+
   return result.success === true;
 }
