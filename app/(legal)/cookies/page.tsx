@@ -8,7 +8,7 @@ import {
 } from "../_components/LegalPage";
 import { contactInfo } from "../../components/site-data";
 
-const updatedAt = "25 de junio de 2026";
+const updatedAt = "26 de junio de 2026";
 
 export const metadata: Metadata = {
   title: "Política de cookies",
@@ -25,10 +25,12 @@ export default function CookiesPage() {
     >
       <LegalSection title="Uso actual">
         <p>
-          Según el código actual del sitio, no se cargan cookies de analítica,
-          publicidad comportamental ni seguimiento de terceros. El sitio puede utilizar
-          tecnologías estrictamente necesarias para seguridad, prevención de abuso,
-          entrega técnica del servicio y funcionamiento del formulario.
+          El sitio utiliza Vercel Web Analytics para medir visitas y rendimiento de
+          forma agregada, sin cookies y sin identificar directamente a los usuarios.
+          No se cargan cookies de publicidad comportamental ni seguimiento comercial
+          de terceros. El sitio también puede utilizar tecnologías estrictamente
+          necesarias para seguridad, prevención de abuso, entrega técnica del servicio
+          y funcionamiento del formulario.
         </p>
       </LegalSection>
 
@@ -38,6 +40,10 @@ export default function CookiesPage() {
             [
               "Cloudflare / Turnstile",
               "Verificación antispam y antibots, protección del formulario y seguridad del sitio. Puede tratar señales técnicas y usar cookies o tecnologías equivalentes estrictamente necesarias.",
+            ],
+            [
+              "Vercel Web Analytics",
+              "Medición agregada de páginas vistas, fuentes de tráfico, dispositivo, navegador, país y métricas de rendimiento. No utiliza cookies y se emplea para entender el uso general del sitio.",
             ],
             [
               "Vercel / infraestructura",
@@ -53,10 +59,11 @@ export default function CookiesPage() {
 
       <LegalSection title="Cookies no exentas">
         <p>
-          Si en el futuro se activan herramientas de analítica, mapas embebidos,
-          publicidad, remarketing, píxeles sociales o personalización no imprescindible,
-          esta política deberá actualizarse y se mostrará un mecanismo de
-          consentimiento previo, granular y revocable antes de cargar esas tecnologías.
+          Si en el futuro se activan herramientas de analítica que usen cookies o
+          identifiquen usuarios, mapas embebidos, publicidad, remarketing, píxeles
+          sociales o personalización no imprescindible, esta política deberá
+          actualizarse y se mostrará un mecanismo de consentimiento previo, granular y
+          revocable antes de cargar esas tecnologías.
         </p>
       </LegalSection>
 

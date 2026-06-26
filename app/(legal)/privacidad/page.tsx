@@ -9,7 +9,7 @@ import {
 } from "../_components/LegalPage";
 import { contactInfo } from "../../components/site-data";
 
-const updatedAt = "25 de junio de 2026";
+const updatedAt = "26 de junio de 2026";
 
 export const metadata: Metadata = {
   title: "Política de privacidad",
@@ -55,6 +55,7 @@ export default function PrivacyPage() {
             "Datos de contacto que envías en el formulario: nombre, correo electrónico, teléfono, web actual y detalles del proyecto.",
             "Datos incluidos voluntariamente en comunicaciones por correo, teléfono, WhatsApp u otros canales que utilices para contactar.",
             "Datos técnicos necesarios para seguridad y funcionamiento: dirección IP, cabeceras técnicas, identificadores de solicitud, información del navegador y resultado de Cloudflare Turnstile.",
+            "Datos agregados de uso del sitio mediante Vercel Web Analytics: páginas visitadas, fuente de tráfico, dispositivo, navegador, país y métricas de rendimiento, sin cookies de analítica.",
             "Datos de control antispam: campo honeypot del formulario, identificador de envío y contador de intentos para limitar abuso.",
           ]}
         />
@@ -74,6 +75,10 @@ export default function PrivacyPage() {
             [
               "Seguridad del sitio",
               "Prevenir spam, bots, abuso, fraude y ataques mediante Cloudflare, Turnstile, límites de tasa y registros técnicos. Base jurídica: interés legítimo en mantener el sitio seguro y disponible.",
+            ],
+            [
+              "Analítica del sitio",
+              "Medir el uso agregado de las páginas legales, rendimiento y fuentes de tráfico mediante Vercel Web Analytics, sin cookies de analítica ni identificación directa de usuarios. Base jurídica: interés legítimo en mejorar el sitio y comprobar su funcionamiento.",
             ],
             [
               "Comunicaciones comerciales",
@@ -101,7 +106,7 @@ export default function PrivacyPage() {
         </p>
         <LegalList
           items={[
-            "Vercel Inc.: alojamiento, ejecución del sitio, infraestructura, registros técnicos y despliegue.",
+            "Vercel Inc.: alojamiento, ejecución del sitio, infraestructura, registros técnicos, despliegue y Vercel Web Analytics.",
             "Cloudflare Inc.: protección, DNS/proxy si está configurado, seguridad y Cloudflare Turnstile para verificar que el formulario no se usa de forma automatizada.",
             "Resend: envío y entrega de correos generados por el formulario de contacto.",
             "Upstash: limitación de intentos del formulario mediante Redis cuando esa integración esté configurada.",
