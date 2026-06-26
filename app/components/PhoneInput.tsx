@@ -62,25 +62,27 @@ export function PhoneInput() {
   useEffect(() => {
     if (!isOpen) return;
 
+    const container = containerRef.current;
+
     const handlePointerDown = (event: PointerEvent) => {
-      if (!containerRef.current?.contains(event.target as Node)) {
+      if (!container?.contains(event.target as Node)) {
         setIsOpen(false);
       }
     };
 
     const handleFocusOut = (event: FocusEvent) => {
       const nextTarget = event.relatedTarget as Node | null;
-      if (!containerRef.current?.contains(nextTarget)) {
+      if (!container?.contains(nextTarget)) {
         setIsOpen(false);
       }
     };
 
     document.addEventListener("pointerdown", handlePointerDown);
-    containerRef.current?.addEventListener("focusout", handleFocusOut);
+    container?.addEventListener("focusout", handleFocusOut);
 
     return () => {
       document.removeEventListener("pointerdown", handlePointerDown);
-      containerRef.current?.removeEventListener("focusout", handleFocusOut);
+      container?.removeEventListener("focusout", handleFocusOut);
     };
   }, [isOpen]);
 

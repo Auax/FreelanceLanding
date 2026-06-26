@@ -8,7 +8,7 @@ import { Header } from "./components/sections/Header";
 import { Hero } from "./components/sections/Hero";
 import { Pricing } from "./components/sections/Pricing";
 import { SelectedWork } from "./components/sections/SelectedWork";
-import { homeStructuredData, seoConfig, siteUrl } from "./seo";
+import { absoluteUrl, homeStructuredData, seoConfig, siteUrl } from "./seo";
 
 export const metadata: Metadata = {
   title: {
@@ -17,6 +17,30 @@ export const metadata: Metadata = {
   description: seoConfig.description,
   alternates: {
     canonical: siteUrl,
+  },
+  openGraph: {
+    type: "website",
+    locale: seoConfig.locale,
+    url: siteUrl,
+    siteName: seoConfig.siteName,
+    title: seoConfig.title,
+    description: seoConfig.description,
+    images: [
+      {
+        url: absoluteUrl("/logo-big.png"),
+        alt: seoConfig.siteName,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seoConfig.title,
+    description: seoConfig.description,
+    images: [absoluteUrl("/logo-big.png")],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

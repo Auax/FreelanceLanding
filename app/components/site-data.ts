@@ -42,7 +42,7 @@ export const featureCards: FeatureCard[] = [
   {
     id: "contact",
     title: "Reservas y contacto fácil",
-    body: "Reservas, WhatsApp y llamadas sin complicaciones. Integrado con herramientas que ya usas.",
+    body: "Reservas, WhatsApp y llamadas sin complicaciones. Todo integrado con herramientas que ya usas.",
     icon: "calendar-check",
   },
   {
@@ -91,17 +91,17 @@ chartData: [
 export const selectedWork = [
   {
     name: "Bioacting",
-    category: "Ecommerce / Tienda online",
+    category: "E-commerce / Tienda online",
     year: "2025",
     image: "/project-images/nuria-web.webp",
-    alt: "Bioacting website project",
+    alt: "Proyecto web de Bioacting",
   },
   {
     name: "Aurelian",
-    category: "Web design demo",
+    category: "Demo de diseño web",
     year: "2026",
     image: "/project-images/aurelian-demo.webp",
-    alt: "Urban Bites restaurant website project",
+    alt: "Demo de diseño web para Aurelian",
   },
 ];
 
@@ -113,7 +113,7 @@ export const plans = [
     features: [
       "Una página",
       "Diseño moderno + móvil",
-      "WhatsApp Integrado",
+      "WhatsApp integrado",
       "Botón de reservas",
       "Formulario de contacto",
       "Google Maps",
@@ -172,6 +172,6 @@ export const faqs = [
   {
     question: "Ya tengo Instagram, ¿para qué necesito una web?",
     answer:
-      "Instagram es genial para tus seguidores actuales, pero una Web optimizada te sirve para conseguir clientes nuevos que buscan en Google cosas como 'Restaurante en Maresme' o 'Fontanero cerca de mí'. Instagram no aparece bien en esas búsquedas; tu web sí",
+      "Instagram es genial para tus seguidores actuales, pero una web optimizada te sirve para conseguir clientes nuevos que buscan en Google cosas como 'restaurante en Maresme' o 'fontanero cerca de mí'. Instagram no aparece bien en esas búsquedas; tu web sí.",
   },
 ];

@@ -164,7 +164,7 @@ export function ContactForm() {
           id="details"
           name="details"
           rows={5}
-          placeholder="Cuéntame más sobre lo que necesitas..."
+          placeholder="Cuéntame más sobre lo que necesitas…"
           maxLength={1200}
           className={`${inputClasses} resize-y`}
         />
