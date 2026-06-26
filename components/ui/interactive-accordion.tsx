@@ -57,7 +57,6 @@ export function UniqueAccordion({
                       initial={false}
                       animate={{
                         scale: isActive ? 1 : isHovered ? 0.85 : 0,
-                        opacity: isActive ? 1 : isHovered ? 0.1 : 0,
                       }}
                       transition={{
                         type: "spring",
@@ -146,7 +145,7 @@ export function UniqueAccordion({
                     id={contentId}
                     role="region"
                     aria-labelledby={triggerId}
-                    initial={{ height: 0, opacity: 0 }}
+                    initial={false}
                     animate={{
                       height: "auto",
                       opacity: 1,

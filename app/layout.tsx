@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     description: seoConfig.description,
     images: [
       {
-        url: absoluteUrl("/logo-big.png"),
+        url: absoluteUrl("/logo-big.webp"),
         alt: "IB Studio",
       },
     ],
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: seoConfig.title,
     description: seoConfig.description,
-    images: [absoluteUrl("/logo-big.png")],
+    images: [absoluteUrl("/logo-big.webp")],
   },
   robots: {
     index: true,
@@ -63,9 +63,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/logo-bg.png",
-    shortcut: "/logo-bg.png",
-    apple: "/logo-bg.png",
+    icon: "/logo-bg.webp",
+    shortcut: "/logo-bg.webp",
+    apple: "/logo-bg.webp",
   },
 };
 

@@ -7,6 +7,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 type Tool = {
   name: string;
   logo: string;
+  alt: string;
 };
 
 type ToolCarouselProps = {
@@ -64,14 +65,14 @@ export function ToolCarousel({ tools }: ToolCarouselProps) {
                   key={tool.name}
                   initial={
                     shouldReduceMotion
-                      ? { opacity: 0 }
-                      : { opacity: 0, y: 8, filter: "blur(5px)" }
+                      ? false
+                      : { y: 8, scale: 0.98 }
                   }
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  animate={{ y: 0, scale: 1 }}
                   exit={
                     shouldReduceMotion
-                      ? { opacity: 0 }
-                      : { opacity: 0, y: -8, filter: "blur(5px)" }
+                      ? undefined
+                      : { y: -8, scale: 0.98 }
                   }
                   transition={{
                     duration: shouldReduceMotion ? 0.12 : 0.3,
@@ -81,7 +82,7 @@ export function ToolCarousel({ tools }: ToolCarouselProps) {
                 >
                   <Image
                     src={tool.logo}
-                    alt=""
+                    alt={tool.alt}
                     width={24}
                     height={24}
                     className="size-5 shrink-0"
@@ -105,7 +106,7 @@ export function ToolCarousel({ tools }: ToolCarouselProps) {
           >
             <Image
               src={tool.logo}
-              alt=""
+              alt={tool.alt}
               width={24}
               height={24}
               className="size-6 shrink-0"

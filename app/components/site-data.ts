@@ -22,11 +22,11 @@ export function getNavHref(item: string): string {
 }
 
 export const websiteTools = [
-  { name: "Figma", logo: "/images/tools/figma.svg" },
-  { name: "Next.js", logo: "/images/tools/nextjs.svg" },
-  { name: "Tailwind", logo: "/images/tools/tailwindcss.svg" },
-  { name: "Vercel", logo: "/images/tools/vercel.svg" },
-  { name: "Analytics", logo: "/images/tools/google-analytics.svg" },
+  { name: "Figma", logo: "/images/tools/figma.svg", alt: "Logotipo de Figma" },
+  { name: "Next.js", logo: "/images/tools/nextjs.svg", alt: "Logotipo de Next.js" },
+  { name: "Tailwind", logo: "/images/tools/tailwindcss.svg", alt: "Logotipo de Tailwind CSS" },
+  { name: "Vercel", logo: "/images/tools/vercel.svg", alt: "Logotipo de Vercel" },
+  { name: "Analytics", logo: "/images/tools/google-analytics.svg", alt: "Logotipo de Google Analytics" },
 ] as const;
 
 export type FeatureIcon = "calendar-check" | "smartphone" | "chart-column";
@@ -94,14 +94,14 @@ export const selectedWork = [
     category: "E-commerce / Tienda online",
     year: "2025",
     image: "/project-images/nuria-web.webp",
-    alt: "Proyecto web de Bioacting",
+    alt: "Captura del sitio web de Bioacting con una tienda online de bienestar",
   },
   {
     name: "Aurelian",
     category: "Demo de diseño web",
     year: "2026",
     image: "/project-images/aurelian-demo.webp",
-    alt: "Demo de diseño web para Aurelian",
+    alt: "Captura de la demo de diseño web para Aurelian",
   },
 ];
 

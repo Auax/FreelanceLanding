@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description: seoConfig.description,
     images: [
       {
-        url: absoluteUrl("/logo-big.png"),
+        url: absoluteUrl("/logo-big.webp"),
         alt: seoConfig.siteName,
       },
     ],
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: seoConfig.title,
     description: seoConfig.description,
-    images: [absoluteUrl("/logo-big.png")],
+    images: [absoluteUrl("/logo-big.webp")],
   },
   robots: {
     index: true,
