@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Stack_Sans_Text } from "next/font/google";
 import type { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 import { MotionPreferences } from "./components/Motion";
 import { absoluteUrl, seoConfig, siteUrl } from "./seo";
@@ -78,6 +79,7 @@ export default function RootLayout({
     <html lang="es" className={stackSansText.variable}>
       <body>
         <MotionPreferences>{children}</MotionPreferences>
+        <Analytics />
       </body>
     </html>
   );
