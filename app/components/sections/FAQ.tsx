@@ -17,7 +17,7 @@ export function FAQ() {
       <div className="container mx-auto">
         <SectionHeader
           title="Preguntas frecuentes"
-          subtitle="See how the app helps people track spending, stay organized, and make smarter financial decisions every day."
+          subtitle="Resolvemos las dudas más habituales antes de crear una web para tu negocio."
         />
         <Reveal delay={0.1}>
           <div className="mx-auto mt-14 max-w-[1480px] lg:mt-16">

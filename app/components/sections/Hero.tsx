@@ -21,7 +21,7 @@ export function Hero() {
       <div className="container relative z-10 mx-auto flex flex-col text-center items-center justify-center mt-20">
         <Entrance delay={0.04}>
           <h1 className="font-medium tracking-tight text-text-primary max-w-3xl text-6xl leading-[1.08] sm:text-7xl lg:text-6xl xl:text-7xl">
-            Descubre la web que tu negocio merece.
+          La web que tu negocio necesita para crecer
           </h1>
         </Entrance>
         <Entrance delay={0.14}>

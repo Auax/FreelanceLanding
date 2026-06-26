@@ -109,11 +109,11 @@ export const plans = [
   {
     name: "Esencial",
     price: "300 €",
-    body: "Todo lo necesario para empezar a vender online.",
+    body: "Web de una página para empezar a recibir contactos, llamadas o reservas.",
     features: [
       "Una página",
       "Diseño moderno + móvil",
-      "Whatsapp Integrado",
+      "WhatsApp Integrado",
       "Botón de reservas",
       "Formulario de contacto",
       "Google Maps",
@@ -122,7 +122,7 @@ export const plans = [
   {
     name: "Profesional",
     price: "550 €",
-    body: "Pack pensado para generar confianza y aumentar tus ventas.",
+    body: "Web completa de hasta 5 páginas para generar más confianza y captar más clientes.",
     popular: true,
     features: [
       "Todo lo del plan esencial",
@@ -136,7 +136,7 @@ export const plans = [
   {
     name: "Enterprise",
     price: "800 €",
-    body: "Maximum features, zero limits.",
+    body: "Para webs con más funcionalidades, integraciones o diseño más avanzado.",
     features: [
       "Todo lo del plan profesional",
       "Hasta 8 páginas",
@@ -157,7 +157,7 @@ export const faqs = [
   {
     question: "¿Podré editar los textos o imágenes yo mismo?",
     answer:
-      "Sí, tú eliges cómo quieres trabajar. Me adapto a lo que sea más cómodo para ti: Opción Tranquilidad (Recomendada): Yo me encargo de todo. Si necesitas cambiar un precio, una foto o un horario, simplemente me mandas un WhatsApp y yo lo actualizo por ti en 24h. Es ideal si no quieres perder tiempo peleándote con la tecnología. Opción Autogestión: Si prefieres tener el control total, te configuro un Panel de Administración visual (muy sencillo, similar a editar un documento de Word). Te daré tus claves para que tú mismo puedas modificar textos, imágenes o menús en tiempo real, sin depender de nadie.",
+      "Sí. Puedes elegir cómo quieres gestionar tu web: si lo prefieres, yo me encargo de todo y cualquier cambio que necesites solo tienes que enviármelo por WhatsApp; lo actualizaré en menos de 24 horas. Si prefieres hacerlo tú mismo, tendrás acceso a un panel de administración muy sencillo para editar el contenido de tu web cuando quieras, sin depender de nadie.",
   },
   {
     question: "¿Cuánto tiempo tarda en estar lista mi web?",

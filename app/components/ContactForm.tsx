@@ -158,7 +158,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="details" className={labelClasses}>
-          Detalles del Proyecto <span className="font-normal text-text-secondary">(opcional)</span>
+          Detalles del proyecto <span className="font-normal text-text-secondary">(opcional)</span>
         </label>
         <textarea
           id="details"
@@ -172,7 +172,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="website" className={labelClasses}>
-          Web Actual <span className="font-normal text-text-secondary">(opcional)</span>
+          Web actual <span className="font-normal text-text-secondary">(opcional)</span>
         </label>
         <input
           id="website"
