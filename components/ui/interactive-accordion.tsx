@@ -67,7 +67,7 @@ export function UniqueAccordion({
                     <motion.span
                       className="relative z-10 text-xs tracking-wide"
                       animate={{
-                        color: isActive
+                        color: isActive || isHovered
                           ? "var(--color-primary-foreground)"
                           : "var(--color-text-secondary)",
                       }}
