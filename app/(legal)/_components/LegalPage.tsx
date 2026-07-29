@@ -1,5 +1,6 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
+
+import { BackLink } from "../../components/BackLink";
 
 type LegalPageProps = {
   title: string;
@@ -18,12 +19,9 @@ export function LegalPage({
     <main className="bg-surface pt-32 pb-20">
       <article className="container mx-auto max-w-4xl">
         <header className="border-b border-border-subtle pb-10">
-          <Link
-            href="/"
-            className="text-sm font-medium text-primary transition-colors hover:text-primary-hover"
-          >
+          <BackLink className="cursor-pointer text-sm font-medium text-primary transition-colors hover:text-primary-hover">
             Volver al inicio
-          </Link>
+          </BackLink>
           <h1 className="mt-6 text-display-md font-semibold tracking-normal text-text-primary">
             {title}
           </h1>
