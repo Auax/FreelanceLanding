@@ -19,7 +19,7 @@ export const seoConfig = {
   siteName: "IB Studio",
   title: "IB Studio | Diseño web para negocios locales",
   description:
-    "Diseño web, tiendas online y SEO local para negocios que quieren más llamadas, reservas y clientes desde Google.",
+    "Diseño web, tiendas online y SEO local para negocios de Barcelona que quieren más llamadas, reservas y clientes desde Google.",
   locale: "es_ES",
   language: "es",
 };

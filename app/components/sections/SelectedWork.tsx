@@ -11,11 +11,12 @@ export function SelectedWork() {
         <SectionHeader title="Nuestros proyectos" subtitle="Algunos de nuestros proyectos recientes" />
 
         <div className="mt-14 grid grid-cols-1 gap-20 lg:gap-x-5 lg:gap-y-8 lg:grid-cols-2 lg:mt-16">
-          {selectedWork.map((project, index) => (
-            <RevealCard key={project.name} delay={index * 0.08} className="group">
+          {selectedWork.map((project, index) => {
+            const card = (
               <article>
                 <div className="relative aspect-[1.2/1] overflow-hidden rounded-md bg-neutral-200">
                   <Image
+                  unoptimized={true}
                     src={project.image}
                     alt={project.alt}
                     fill
@@ -31,8 +32,26 @@ export function SelectedWork() {
                   <p className="pt-1 text-xs text-text-secondary">{project.year}</p>
                 </div>
               </article>
-            </RevealCard>
-          ))}
+            );
+
+            return (
+              <RevealCard key={project.name} delay={index * 0.08} className="group">
+                {"url" in project ? (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Ver proyecto ${project.name}`}
+                    className="block rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-text-primary"
+                  >
+                    {card}
+                  </a>
+                ) : (
+                  card
+                )}
+              </RevealCard>
+            );
+          })}
         </div>
       </div>
     </section>
