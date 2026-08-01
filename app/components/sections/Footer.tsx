@@ -36,14 +36,14 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-surface-raised">
       <Reveal>
-        <div className="container mx-auto grid gap-9 py-10 sm:py-12 md:grid-cols-[minmax(0,1fr)_auto] md:gap-10 lg:py-14">
+        <div className="container mx-auto grid gap-7 pb-5 pt-8 sm:pb-6 sm:pt-10 md:grid-cols-[minmax(0,1fr)_auto] md:gap-8 lg:pb-7 lg:pt-12">
           <div>
             <Logo />
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-text-secondary sm:text-base">
+            <p className="mt-2 max-w-sm text-sm leading-relaxed text-text-secondary sm:text-base">
               Diseño web claro y eficaz para negocios locales.
             </p>
 
-            <div className="mt-5 flex items-center gap-6" aria-label="Canales de contacto">
+            <div className="mt-4 flex items-center gap-6" aria-label="Canales de contacto">
               <a
                 href={contactInfo.instagramHref}
                 target="_blank"
@@ -90,7 +90,7 @@ export function Footer() {
       </Reveal>
 
       <div className="container mx-auto">
-        <div className="flex flex-col gap-3 border-t border-border py-5 text-xs text-text-secondary sm:py-6 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-3 pb-6 text-xs text-text-secondary sm:pb-8 md:flex-row md:items-center md:justify-between">
           <p>&copy; 2026 IB Studio. Todos los derechos reservados.</p>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             {legalLinks.map((link) => (
