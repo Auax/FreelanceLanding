@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { Phone } from "lucide-react";
 
 import { Logo } from "../Logo";
 import { Reveal } from "../Motion";
-import { getNavHref, navItems } from "../site-data";
+import { WhatsAppIcon } from "../WhatsAppIcon";
+import { contactInfo, getNavHref, navItems } from "../site-data";
 
 const legalLinks = [
   { label: "Aviso legal", href: "/aviso-legal" },
@@ -11,25 +13,72 @@ const legalLinks = [
   { label: "Términos", href: "/terminos" },
 ] as const;
 
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect width="18" height="18" x="3" y="3" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-surface">
+    <footer className="border-t border-border bg-surface-raised">
       <Reveal>
-        <div className="container mx-auto flex flex-col gap-8 pt-10 pb-3 md:flex-row md:items-center md:justify-between">
-          <div className="space-y-3">
+        <div className="container mx-auto grid gap-9 py-10 sm:py-12 md:grid-cols-[minmax(0,1fr)_auto] md:gap-10 lg:py-14">
+          <div>
             <Logo />
-            <p className="max-w-xs text-sm text-text-secondary">
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-text-secondary sm:text-base">
               Diseño web claro y eficaz para negocios locales.
             </p>
+
+            <div className="mt-5 flex items-center gap-6" aria-label="Canales de contacto">
+              <a
+                href={contactInfo.instagramHref}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram de IB Studio"
+                className="text-text-secondary transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              >
+                <InstagramIcon className="size-5" />
+              </a>
+              <a
+                href={contactInfo.phoneHref}
+                aria-label={`Llamar a IB Studio al ${contactInfo.phone}`}
+                className="text-text-secondary transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              >
+                <Phone className="size-5" strokeWidth={1.8} />
+              </a>
+              <a
+                href={contactInfo.whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Contactar con IB Studio por WhatsApp"
+                className="text-text-secondary transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              >
+                <WhatsAppIcon className="size-5" />
+              </a>
+            </div>
           </div>
 
-          <nav aria-label="Footer navigation">
-            <ul className="flex flex-wrap gap-x-6 gap-y-2">
+          <nav aria-label="Navegación del pie de página" className="md:self-center md:justify-self-end">
+            <ul className="flex flex-wrap gap-x-7 gap-y-3.5 md:flex-nowrap md:justify-end">
               {navItems.map((item) => (
                 <li key={item}>
                   <a
                     href={getNavHref(item)}
-                    className="text-sm text-text-secondary transition-colors hover:text-primary"
+                    className="text-[13px] text-text-secondary transition-colors hover:text-primary sm:text-sm"
                   >
                     {item}
                   </a>
@@ -40,14 +89,20 @@ export function Footer() {
         </div>
       </Reveal>
 
-      <div className="container mx-auto flex flex-col gap-3 pb-10 text-xs text-text-secondary md:flex-row md:items-center md:justify-between">
-        <p>&copy; 2026 IB Studio. Todos los derechos reservados.</p>
-        <div className="flex flex-wrap gap-x-5 gap-y-2">
-          {legalLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="hover:text-text-primary">
-              {link.label}
-            </Link>
-          ))}
+      <div className="container mx-auto">
+        <div className="flex flex-col gap-3 border-t border-border py-5 text-xs text-text-secondary sm:py-6 md:flex-row md:items-center md:justify-between">
+          <p>&copy; 2026 IB Studio. Todos los derechos reservados.</p>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {legalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="transition-colors hover:text-text-primary"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

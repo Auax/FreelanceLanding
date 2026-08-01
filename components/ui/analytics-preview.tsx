@@ -1,6 +1,11 @@
 "use client";
 
-import type { PointerEvent as ReactPointerEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type PointerEvent as ReactPointerEvent,
+} from "react";
 import {
   Area,
   AreaChart,
@@ -12,6 +17,98 @@ import {
 } from "recharts";
 
 import { analyticsPreviewData } from "@/app/components/site-data";
+
+type CountUpNumberProps = {
+  value: string;
+  delay?: number;
+  suffix?: string;
+};
+
+function CountUpNumber({ value, delay = 0, suffix = "" }: CountUpNumberProps) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [displayValue, setDisplayValue] = useState("0");
+  const decimalPlaces = value.includes(",")
+    ? (value.split(",")[1]?.length ?? 0)
+    : 0;
+  const target = Number(value.replace(",", "."));
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element || !Number.isFinite(target)) return;
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (reducedMotion) {
+      const animationFrame = window.requestAnimationFrame(() => {
+        setDisplayValue(value);
+      });
+
+      return () => window.cancelAnimationFrame(animationFrame);
+    }
+
+    let animationFrame = 0;
+    let hasAnimated = false;
+
+    const startAnimation = () => {
+      if (hasAnimated) return;
+      hasAnimated = true;
+
+      const duration = 1200;
+      let startTime: number | undefined;
+
+      const update = (time: number) => {
+        if (startTime === undefined) startTime = time;
+
+        const elapsed = Math.max(0, time - startTime - delay);
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+        const currentValue = target * easedProgress;
+        const formattedValue = currentValue
+          .toFixed(decimalPlaces)
+          .replace(".", ",");
+
+        setDisplayValue(formattedValue);
+
+        if (progress < 1) {
+          animationFrame = window.requestAnimationFrame(update);
+        } else {
+          setDisplayValue(value);
+        }
+      };
+
+      animationFrame = window.requestAnimationFrame(update);
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        startAnimation();
+        observer.disconnect();
+      },
+      { threshold: 0.45 },
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+      window.cancelAnimationFrame(animationFrame);
+    };
+  }, [decimalPlaces, delay, target, value]);
+
+  if (!Number.isFinite(target)) {
+    return <span className="tabular-nums">{value}{suffix}</span>;
+  }
+
+  return (
+    <span ref={ref} className="tabular-nums">
+      {displayValue}
+      {suffix}
+    </span>
+  );
+}
 
 export function AnalyticsPreview() {
   const handlePointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
@@ -56,12 +153,17 @@ export function AnalyticsPreview() {
               <p className="text-xs font-semibold text-text-secondary sm:text-sm">
                 {metric.label}
               </p>
-             <div className="flex items-end gap-2">
+              <div className="flex items-end gap-2">
                 <p className="mt-2 font-semibold tracking-tight text-text-primary sm:text-2xl">
-                    {metric.value}
+                  <CountUpNumber value={metric.value} />
                 </p>
                 <p className="mb-1 text-xs font-semibold text-emerald-500 sm:text-sm">
-                  &uarr; {metric.increase}
+                  &uarr;{" "}
+                  <CountUpNumber
+                    value={metric.increase.replace("%", "")}
+                    suffix="%"
+                    delay={120}
+                  />
                 </p>
               </div>
             </div>
