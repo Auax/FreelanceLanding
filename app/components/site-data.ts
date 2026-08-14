@@ -2,10 +2,10 @@ export const navItems = ["Inicio", "Servicios", "Proyectos", "Planes", "Contacto
 
 export const contactInfo = {
   email: "ibaifo8@gmail.com",
-  phone: "+34 652 56 46 94",
+  phone: "+34 711 55 52 67",
   instagramHref: "https://www.instagram.com/ib.webs/",
-  whatsappHref: "https://wa.me/34652564694",
-  phoneHref: "tel:+34652564694",
+  whatsappHref: "https://wa.me/34711555267",
+  phoneHref: "tel:+34711555267",
 };
 
 const navAnchors: Record<string, string> = {
