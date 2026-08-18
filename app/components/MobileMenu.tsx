@@ -277,7 +277,7 @@ export function MobileMenu() {
                   <Button
                     variant="outline"
                     className="w-full bg-white/70 backdrop-blur-sm"
-                    href="#contacto"
+                    href="/#contacto"
                   >
                     Pedir auditoría
                   </Button>

@@ -13,6 +13,11 @@ const legalLinks = [
   { label: "Términos", href: "/terminos" },
 ] as const;
 
+const footerNavItems = [
+  ...navItems.map((label) => ({ label, href: getNavHref(label) })),
+  { label: "Blog", href: "/blog" },
+] as const;
+
 function InstagramIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -74,14 +79,14 @@ export function Footer() {
 
           <nav aria-label="Navegación del pie de página" className="md:self-center md:justify-self-end">
             <ul className="flex flex-wrap gap-x-7 gap-y-3.5 md:flex-nowrap md:justify-end">
-              {navItems.map((item) => (
-                <li key={item}>
-                  <a
-                    href={getNavHref(item)}
+              {footerNavItems.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
                     className="text-[13px] text-text-secondary transition-colors hover:text-primary sm:text-sm"
                   >
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -32,7 +32,7 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center justify-self-end gap-3 lg:col-start-3 lg:flex">
-          <Button variant="outline" href="#contacto">
+          <Button variant="outline" href="/#contacto">
             Pedir auditoría
           </Button>
           <Button variant="primary" href={contactInfo.whatsappHref} className="gap-2">

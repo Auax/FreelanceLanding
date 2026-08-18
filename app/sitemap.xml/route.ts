@@ -1,5 +1,7 @@
 import { absoluteUrl } from "../seo";
 
+import { getPublishedBlogPosts } from "@/lib/blog";
+
 export const dynamic = "force-static";
 
 const routes = [
@@ -31,7 +33,7 @@ function escapeXml(value: string) {
 
 export function GET() {
   const lastModified = new Date().toISOString();
-  const urls = routes
+  const staticUrls = routes
     .map(
       (route) => `
   <url>
@@ -43,8 +45,34 @@ export function GET() {
     )
     .join("");
 
+  const blogPosts = getPublishedBlogPosts();
+  const blogUrls = [
+    {
+      path: "/blog",
+      lastModified: blogPosts[0]?.dateModified ?? lastModified,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...blogPosts.map((post) => ({
+      path: `/blog/${post.slug}`,
+      lastModified: post.dateModified,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    })),
+  ]
+    .map(
+      (route) => `
+  <url>
+    <loc>${escapeXml(absoluteUrl(route.path))}</loc>
+    <lastmod>${escapeXml(route.lastModified)}</lastmod>
+    <changefreq>${route.changeFrequency}</changefreq>
+    <priority>${route.priority}</priority>
+  </url>`,
+    )
+    .join("");
+
   const body = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${staticUrls}${blogUrls}
 </urlset>
 `;
 
